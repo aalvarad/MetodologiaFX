@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="ap_Create" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.CreateController">
+    <children>
+        <TabPane fx:id="tp_Create" prefHeight="618.0" prefWidth="1283.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tab_BusinessUnit" text="Business Unit">
+                    <content>
+                        <AnchorPane fx:id="ap_BU" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp_BU" hgap="10.0" prefHeight="116.0" prefWidth="265.0" vgap="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <children>
+                                        <Label fx:id="lbl_BUName" text="Name" GridPane.halignment="RIGHT" />
+                                        <TextField fx:id="txt_BUName" GridPane.columnIndex="1" />
+                                        <Button fx:id="btn_BUSave" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_Area" text="Area">
+                    <content>
+                        <AnchorPane fx:id="ap_Area" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp_Area" hgap="10.0" prefHeight="116.0" prefWidth="265.0" vgap="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <children>
+                                        <Label fx:id="lbl_Area_BU" text="Business Unit" GridPane.halignment="RIGHT" />
+                                        <Label fx:id="lbl_Area_Name" text="Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                        <ChoiceBox fx:id="chb_Area_BU" prefWidth="150.0" GridPane.columnIndex="1" />
+                                        <TextField fx:id="txt_Area_Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Button fx:id="btn_Area_Save" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_Department" text="Department">
+                    <content>
+                        <AnchorPane fx:id="ap_Department" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp__Department" hgap="10.0" prefHeight="116.0" prefWidth="265.0" vgap="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <children>
+                                        <Label fx:id="lbl_Dep_BU" text="Business Unit" GridPane.halignment="RIGHT" />
+                                        <Label fx:id="lbl_Dep_Area" text="Area" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                        <Label fx:id="lbl_Dep_Name" text="Name" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                        <ChoiceBox fx:id="chb_Dep_BU" prefWidth="150.0" GridPane.columnIndex="1" />
+                                        <ChoiceBox fx:id="chb_Dep_Area" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="txt_Dep_Name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <Button fx:id="btn_Dep_Save" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_ProdNum" text="Product Number">
+                    <content>
+                        <AnchorPane fx:id="ap_ProdNum" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp_ProdNum" hgap="10.0" layoutX="34.0" layoutY="69.0" prefHeight="116.0" prefWidth="265.0" vgap="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label fx:id="lbl_Prod_BU" text="Business Unit" GridPane.halignment="RIGHT" />
+                                        <Label fx:id="lbl_Prod_Area" text="Area" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                        <Label fx:id="lbl_Prod_Department" text="Department" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                        <Label fx:id="lbl_Prod_Name" text="Name" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                                        <ChoiceBox fx:id="chb_Prod_BU" prefWidth="150.0" GridPane.columnIndex="1" />
+                                        <ChoiceBox fx:id="chb_Prod_Area" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <ChoiceBox fx:id="chb_Prod_Department" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <TextField fx:id="txt_Prod_Name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <Button fx:id="btn_Prod_Save" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_Employee" text="Employee">
+                    <content>
+                        <AnchorPane fx:id="ap_Employee" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp_Employee" hgap="10.0" prefHeight="205.0" prefWidth="424.0" vgap="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <children>
+                                        <Label fx:id="lbl_Emp_BU" text="Business Unit" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                                        <Label fx:id="lbl_Emp_Area" text="Area" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                        <Label fx:id="lbl_Emp_Department" text="Department" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                        <ChoiceBox fx:id="chb_Emp_BU" prefWidth="150.0" GridPane.columnIndex="3" />
+                                        <ChoiceBox fx:id="chb_Emp_Area" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                        <ChoiceBox fx:id="chb_Emp_Department" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                        <Button fx:id="btn_Emp_Save" mnemonicParsing="false" text="Save" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                        <Label fx:id="lbl_Emp_FName" text="First Name" />
+                                        <Label fx:id="lbl_Emp_LName" text="Last Name" GridPane.rowIndex="1" />
+                                        <Label fx:id="lbl_Emp_Password" text="Password" GridPane.rowIndex="2" />
+                                        <TextField fx:id="txt_Emp_FName" GridPane.columnIndex="1" />
+                                        <TextField fx:id="txt_Emp_LName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="txt_Emp_Password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <Label fx:id="lbl_Emp_Role" text="Role" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                        <ChoiceBox fx:id="txt_Emp_Role" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_ReworkType" text="ReworkType">
+                    <content>
+                        <AnchorPane fx:id="ap_ReworkType" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp_ReworkType" hgap="10.0" layoutX="14.0" layoutY="14.0" vgap="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label fx:id="lbl_TaskName" text="Task Name" />
+                                        <TextField fx:id="txt_TaskName" GridPane.columnIndex="1" />
+                                        <Button fx:id="btn_RT_Save" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>    
+</AnchorPane>

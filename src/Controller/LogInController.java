@@ -38,8 +38,6 @@ public class LogInController implements Initializable {
     CallableStatement stmt;
     ResultSet rs;
     Connection cn = conn.conexion();
-    private ResourceBundle bundle;
-    private Locale locale;
     
     /**
      * Initializes the controller class.
@@ -63,47 +61,51 @@ public class LogInController implements Initializable {
     private Button btn_FYP;
     
     public void LoadLang(String lang){
-        locale = new Locale(lang);
-        bundle = ResourceBundle.getBundle("Properties.Bundle", locale);
-        btn_FYP.setText(bundle.getString("Forgot_your_password"));
-        btn_Language.setText(bundle.getString("Language"));
+        Main.locale = new Locale(lang);
+        Main.bundle = ResourceBundle.getBundle("Properties.Bundle", Main.locale);
+        btn_FYP.setText(Main.bundle.getString("Forgot_your_password"));
+        btn_Language.setText(Main.bundle.getString("Language"));
     }
     
     public void LogIn(){
         LoadLang("es");
-//        if (txt_User.getText().length() != 0 && !txt_Password.getText().isEmpty()){
-//            int rol = 0;
-//            try {
-//                stmt = cn.prepareCall("{CALL `login`(?, ?)}");
-//                stmt.setInt(1,Integer.parseInt(txt_User.getText()));
-//                stmt.setString(2,txt_Password.getText());
-//                rs = stmt.executeQuery();
-//                while(rs.next()) {
-//                    rol =rs.getInt(1);
-//                }
-//                switch (rol)
-//                {
-//                    case 1:
-//                        //Ventana Rework
-//                        break;
-//                    case 2:
-//                        //Ventana Tecnico
-//                        break;
-//                    case 3:
-//                        //Ventana Supervisor
-//                        break;
-//                    default:
-//                        ErrorAlert("Log In", "Log In error", "Wrong user number or password");
-//                        break;
-//                }
-//                        
-//            } catch (Exception e) {
-//                ErrorAlert("Log In", "Log In error", "Database connection was not established");
-//            }
-//        }
-//        else {
-//            WarningAlert("Log In", "Log In error", "User field or password field are empty");
-//        }
+        if (txt_User.getText().length() != 0 && !txt_Password.getText().isEmpty()){
+            int rol = 0;
+            try {
+                stmt = cn.prepareCall("{CALL `login`(?, ?)}");
+                stmt.setInt(1,Integer.parseInt(txt_User.getText()));
+                stmt.setString(2,txt_Password.getText());
+                rs = stmt.executeQuery();
+                while(rs.next()) {
+                    rol =rs.getInt(1);
+                }
+                Go(rol);
+                        
+            } catch (Exception e) {
+                Main.ErrorAlert("Log In", "Log In error", "Database connection was not established");
+            }
+        }
+        else {
+            Main.ErrorAlert("Log In", "Log In error", "User field or password field are empty");
+        }
+    }
+    
+    private void Go(int rol){
+        switch (rol)
+        {
+            case 1:
+                //Ventana Rework
+            break;
+            case 2:
+                //Ventana Tecnico
+            break;
+            case 3:
+                //Ventana Supervisor
+            break;
+            default:
+                Main.ErrorAlert("Log In", "Log In error", "Wrong user number or password");
+                break;
+        }
     }
     
     public void FYP () throws IOException{
@@ -129,23 +131,7 @@ public class LogInController implements Initializable {
         stage.close();
     }
     
-    public void WarningAlert (String titulo, String cabecera, String mensaje){
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.setTitle(titulo);
-        alert.setHeaderText(cabecera);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
-    
-    public void ErrorAlert(String titulo, String cabecera, String mensaje){
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle(titulo);
-        alert.setHeaderText(cabecera);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
-    
     public void Language(){
-        
+        //Call Language window
     }
 }

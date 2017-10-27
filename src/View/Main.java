@@ -7,12 +7,16 @@ package View;
  */
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -27,7 +31,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
     private Stage primaryStage;
     private AnchorPane rootLayout;
-    public static String Language = "en";
+    public static String Language = "es";
+    public static ResourceBundle bundle;
+    public static Locale locale;
     
     @Override
     public void start(Stage primaryStage) {
@@ -61,6 +67,21 @@ public class Main extends Application {
         }
     }
     
+    public static void WarningAlert (String titulo, String cabecera, String mensaje){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(titulo);
+        alert.setHeaderText(cabecera);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+    
+    public static void ErrorAlert(String titulo, String cabecera, String mensaje){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(cabecera);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 
     /**
      * @param args the command line arguments
