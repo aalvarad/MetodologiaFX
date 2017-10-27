@@ -1,10 +1,12 @@
 
 package Controller;
 
+import View.Main;
 import java.net.URL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,6 +39,12 @@ public class ForgotPassController implements Initializable {
     @FXML
     private PasswordField txt_Pass2;
     @FXML
+    private Label lbl_User;
+    @FXML
+    private Label lbl_question;
+    @FXML
+    private Label lbl_answer;
+    @FXML
     private Label lbl_newP;
     @FXML
     private Label lbl_confirmP;
@@ -45,18 +53,27 @@ public class ForgotPassController implements Initializable {
     @FXML
     public ChoiceBox<String> cmb_preguntas;
     @FXML
+    public Pane pane_1;
+    @FXML
     public Pane pane_2;
-     
     
-//    ArrayList<String> items = new ArrayList<>();
-      ObservableList<String> items = FXCollections.observableArrayList();
+    ObservableList<String> items = FXCollections.observableArrayList();
   
-
      @Override
     public void initialize(URL url, ResourceBundle rb) {
+            LoadLang(Main.Language);
             Preguntas();
-
             cmb_preguntas.setItems(items);
+    }
+    
+    public void LoadLang(String lang){
+        Main.locale = new Locale(lang);
+        Main.bundle = ResourceBundle.getBundle("Properties.Bundle", Main.locale);
+        lbl_User.setText(Main.bundle.getString("Employee_Number"));
+        lbl_question.setText(Main.bundle.getString("Choose_your_security_question"));
+        lbl_answer.setText(Main.bundle.getString("Answer"));
+        lbl_newP.setText(Main.bundle.getString("New_Password"));
+        lbl_confirmP.setText(Main.bundle.getString("Confirm_Password"));
     }
     
     public void Preguntas(){
@@ -83,7 +100,6 @@ public class ForgotPassController implements Initializable {
                     result = rs.getInt(1);
                 }
                 Enable(result);
-                txt_User.setDisable(true);
             } catch (Exception e) {
             }
         }
@@ -91,10 +107,12 @@ public class ForgotPassController implements Initializable {
     
     public void Enable(int result){
         if (result == 1){
-              pane_2.setDisable(false);
+            pane_1.setDisable(true);
+            txt_User.setDisable(true);
+            pane_2.setDisable(false);
         }
         else {
-           JOptionPane.showMessageDialog(null, "ERROR", "ERROR", JOptionPane.ERROR_MESSAGE);
+           Main.ErrorAlert("Security Question", "Security Question", "Your security question does not match with your answer");
         }
     }
     
@@ -110,7 +128,7 @@ public class ForgotPassController implements Initializable {
                 }
             }
             else {
-                //Contrasenas no coinciden
+                Main.WarningAlert("New Password", "New password", "Passwords do not match");
             }
         }
     }
