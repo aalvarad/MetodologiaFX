@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="ap_Manage" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.ManageController">
+    <children>
+        <TabPane fx:id="tp_Create" prefHeight="618.0" prefWidth="1283.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tab_BusinessUnit" text="Business Unit">
+                    <content>
+                        <AnchorPane fx:id="ap_BU" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp_BU" hgap="10.0" prefHeight="116.0" prefWidth="265.0" vgap="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <children>
+                                        <Label fx:id="lbl_BUName" text="Name" GridPane.halignment="CENTER" />
+                                        <Button fx:id="btn_BUSave" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <ChoiceBox fx:id="chb_BU" prefWidth="150.0" GridPane.columnIndex="1" />
+                              <RadioButton fx:id="rdb_BU_Disable" mnemonicParsing="false" text="Disable" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <RadioButton fx:id="rdb_BU_Enable" mnemonicParsing="false" text="Enable" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_Area" text="Area">
+                    <content>
+                        <AnchorPane fx:id="ap_Area" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp_Area" hgap="10.0" prefHeight="116.0" prefWidth="265.0" vgap="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <children>
+                                        <Label fx:id="lbl_Area_BU" text="Business Unit" GridPane.halignment="RIGHT" />
+                                        <Label fx:id="lbl_Area_Name" text="Area" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                        <ChoiceBox fx:id="chb_Area_BU" prefWidth="150.0" GridPane.columnIndex="1" />
+                                        <Button fx:id="btn_Area_Save" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <RadioButton fx:id="rdb_Area_Enable" mnemonicParsing="false" text="Enable" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="rdb_Area_Disable" mnemonicParsing="false" text="Disable" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <ChoiceBox fx:id="chb_Area" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_Department" text="Department">
+                    <content>
+                        <AnchorPane fx:id="ap_Department" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp__Department" hgap="10.0" prefHeight="116.0" prefWidth="265.0" vgap="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <children>
+                                        <Label fx:id="lbl_Dep_BU" text="Business Unit" GridPane.halignment="RIGHT" />
+                                        <Label fx:id="lbl_Dep_Area" text="Area" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                        <Label fx:id="lbl_Dep_Name" text="Department" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                        <ChoiceBox fx:id="chb_Dep_BU" prefWidth="150.0" GridPane.columnIndex="1" />
+                                        <ChoiceBox fx:id="chb_Dep_Area" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Button fx:id="btn_Dep_Save" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <ChoiceBox fx:id="chb_Department" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="rdb_Dep_Enable" mnemonicParsing="false" text="Enable" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                              <RadioButton fx:id="rdb_Dep_Disable" mnemonicParsing="false" text="Disable" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_ProdNum" text="Product Number">
+                    <content>
+                        <AnchorPane fx:id="ap_ProdNum" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp_ProdNum" hgap="10.0" layoutX="34.0" layoutY="69.0" prefHeight="116.0" prefWidth="265.0" vgap="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label fx:id="lbl_Prod_BU" text="Business Unit" GridPane.halignment="RIGHT" />
+                                        <Label fx:id="lbl_Prod_Area" text="Area" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                        <Label fx:id="lbl_Prod_Department" text="Department" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                        <Label fx:id="lbl_Prod_Name" text="Product Number" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                                        <ChoiceBox fx:id="chb_Prod_BU" prefWidth="150.0" GridPane.columnIndex="1" />
+                                        <ChoiceBox fx:id="chb_Prod_Area" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <ChoiceBox fx:id="chb_Prod_Department" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <Button fx:id="btn_Prod_Save" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <RadioButton fx:id="rdb_ProdNo_Enable" mnemonicParsing="false" text="Enable" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                              <RadioButton fx:id="rdb_ProdNo_Disable" mnemonicParsing="false" text="Disable" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <ChoiceBox fx:id="chb_ProdNo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_Employee" text="Employee">
+                    <content>
+                        <AnchorPane fx:id="ap_Employee" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp_Employee" hgap="10.0" prefHeight="116.0" prefWidth="265.0" vgap="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <children>
+                                        <Label fx:id="lbl_Emp_BU" text="Business Unit" GridPane.halignment="RIGHT" />
+                                        <Label fx:id="lbl_Emp_Area" text="Area" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                        <Label fx:id="lbl_Emp_Department" text="Department" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                                        <ChoiceBox fx:id="chb_Emp_BU" prefWidth="150.0" GridPane.columnIndex="1" />
+                                        <ChoiceBox fx:id="chb_Emp_Area" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <ChoiceBox fx:id="chb_Emp_Department" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <Button fx:id="btn_Emp_Save" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                                        <Label fx:id="lbl_Employee" text="Employee" GridPane.rowIndex="3" />
+                                        <ChoiceBox fx:id="chb_Employee" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <RadioButton fx:id="rdb_Emp_Enable" mnemonicParsing="false" text="Enable" GridPane.rowIndex="4" />
+                              <RadioButton fx:id="rdb_Emp_Disable" mnemonicParsing="false" text="Disable" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tab_ReworkType" text="ReworkType">
+                    <content>
+                        <AnchorPane fx:id="ap_ReworkType" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane fx:id="gp_ReworkType" hgap="10.0" prefHeight="115.0" prefWidth="265.0" vgap="30.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="144.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label fx:id="lbl_TaskName" text="Task Name" />
+                                        <Button fx:id="btn_RT_Save" mnemonicParsing="false" text="Save" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="rdb_Task_Enable" mnemonicParsing="false" text="Enable" GridPane.rowIndex="1" />
+                              <RadioButton fx:id="rdb_Task_Disable" mnemonicParsing="false" text="Disable" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <ChoiceBox fx:id="chb_TaskName" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                    </padding>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>    
+</AnchorPane>
