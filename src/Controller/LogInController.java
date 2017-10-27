@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import View.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.CallableStatement;
@@ -21,6 +22,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.Locale;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -36,6 +38,9 @@ public class LogInController implements Initializable {
     CallableStatement stmt;
     ResultSet rs;
     Connection cn = conn.conexion();
+    private ResourceBundle bundle;
+    private Locale locale;
+    
     /**
      * Initializes the controller class.
      */
@@ -43,6 +48,7 @@ public class LogInController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        LoadLang(Main.Language);
     }    
     
     @FXML
@@ -51,41 +57,53 @@ public class LogInController implements Initializable {
     private PasswordField txt_Password;
     @FXML
     private Button btn_Exit;
+    @FXML
+    private Button btn_Language;
+    @FXML
+    private Button btn_FYP;
+    
+    public void LoadLang(String lang){
+        locale = new Locale(lang);
+        bundle = ResourceBundle.getBundle("Properties.Bundle", locale);
+        btn_FYP.setText(bundle.getString("Forgot_your_password"));
+        btn_Language.setText(bundle.getString("Language"));
+    }
     
     public void LogIn(){
-        if (txt_User.getText().length() != 0 && !txt_Password.getText().isEmpty()){
-            int rol = 0;
-            try {
-                stmt = cn.prepareCall("{CALL `login`(?, ?)}");
-                stmt.setInt(1,Integer.parseInt(txt_User.getText()));
-                stmt.setString(2,txt_Password.getText());
-                rs = stmt.executeQuery();
-                while(rs.next()) {
-                    rol =rs.getInt(1);
-                }
-                switch (rol)
-                {
-                    case 1:
-                        //Ventana Rework
-                        break;
-                    case 2:
-                        //Ventana Tecnico
-                        break;
-                    case 3:
-                        //Ventana Supervisor
-                        break;
-                    default:
-                        ErrorAlert("Log In", "Log In error", "Wrong user number or password");
-                        break;
-                }
-                        
-            } catch (Exception e) {
-                ErrorAlert("Log In", "Log In error", "Database connection was not established");
-            }
-        }
-        else {
-            WarningAlert("Log In", "Log In error", "User field or password field are empty");
-        }
+        LoadLang("es");
+//        if (txt_User.getText().length() != 0 && !txt_Password.getText().isEmpty()){
+//            int rol = 0;
+//            try {
+//                stmt = cn.prepareCall("{CALL `login`(?, ?)}");
+//                stmt.setInt(1,Integer.parseInt(txt_User.getText()));
+//                stmt.setString(2,txt_Password.getText());
+//                rs = stmt.executeQuery();
+//                while(rs.next()) {
+//                    rol =rs.getInt(1);
+//                }
+//                switch (rol)
+//                {
+//                    case 1:
+//                        //Ventana Rework
+//                        break;
+//                    case 2:
+//                        //Ventana Tecnico
+//                        break;
+//                    case 3:
+//                        //Ventana Supervisor
+//                        break;
+//                    default:
+//                        ErrorAlert("Log In", "Log In error", "Wrong user number or password");
+//                        break;
+//                }
+//                        
+//            } catch (Exception e) {
+//                ErrorAlert("Log In", "Log In error", "Database connection was not established");
+//            }
+//        }
+//        else {
+//            WarningAlert("Log In", "Log In error", "User field or password field are empty");
+//        }
     }
     
     public void FYP () throws IOException{
@@ -104,10 +122,6 @@ public class LogInController implements Initializable {
         stage.setHeight(bounds.getHeight());
         stage.setScene(scene);
         stage.showAndWait();
-    }
-    
-    public void Language (){
-        
     }
     
     public void Exit() {
@@ -129,5 +143,9 @@ public class LogInController implements Initializable {
         alert.setHeaderText(cabecera);
         alert.setContentText(mensaje);
         alert.showAndWait();
+    }
+    
+    public void Language(){
+        
     }
 }
