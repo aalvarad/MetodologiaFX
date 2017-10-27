@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Modality;
 /**
  * FXML Controller class
@@ -73,12 +75,16 @@ public class LogInController implements Initializable {
                         //Ventana Supervisor
                         break;
                     default:
+                        ErrorAlert("Log In", "Log In error", "Wrong user number or password");
                         break;
                 }
                         
             } catch (Exception e) {
+                ErrorAlert("Log In", "Log In error", "Database connection was not established");
             }
-            
+        }
+        else {
+            WarningAlert("Log In", "Log In error", "User field or password field are empty");
         }
     }
     
@@ -107,5 +113,21 @@ public class LogInController implements Initializable {
     public void Exit() {
         Stage stage = (Stage) btn_Exit.getScene().getWindow();
         stage.close();
+    }
+    
+    public void WarningAlert (String titulo, String cabecera, String mensaje){
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle(titulo);
+        alert.setHeaderText(cabecera);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+    
+    public void ErrorAlert(String titulo, String cabecera, String mensaje){
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(cabecera);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }
