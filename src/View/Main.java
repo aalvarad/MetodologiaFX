@@ -25,9 +25,9 @@ import javafx.stage.Stage;
  * @author jonathancastro
  */
 public class Main extends Application {
-    
     private Stage primaryStage;
     private AnchorPane rootLayout;
+    public static String Language = "en";
     
     @Override
     public void start(Stage primaryStage) {

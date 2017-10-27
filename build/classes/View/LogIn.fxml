@@ -20,7 +20,7 @@
          <children>
             <PasswordField fx:id="txt_Password" alignment="CENTER" layoutX="158.0" layoutY="259.0" prefHeight="40.0" prefWidth="291.0" />
             <TextField fx:id="txt_User" alignment="CENTER" layoutX="158.0" layoutY="178.0" prefHeight="40.0" prefWidth="291.0" />
-            <ImageView fitHeight="78.0" fitWidth="83.0" layoutX="257.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="img_LoginUser" fitHeight="78.0" fitWidth="83.0" layoutX="257.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/man.png" />
                </image>
@@ -28,7 +28,7 @@
             <Button fx:id="btn_LogIn" alignment="CENTER" layoutX="277.0" layoutY="359.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#LogIn" prefHeight="38.0" prefWidth="38.0" style="-fx-graphic: url(&quot;Images/log-in.png&quot;); -fx-background-color: #0080ff #0080ff;" text="" />
             <ImageView fx:id="img_User" fitHeight="40.0" fitWidth="44.0" layoutX="108.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/Login.png" />
+                  <Image url="@../Images/login.png" />
                </image>
             </ImageView>
             <ImageView fx:id="img_Pass" fitHeight="40.0" fitWidth="40.0" layoutX="107.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
@@ -36,7 +36,7 @@
                   <Image url="@../Images/password.png" />
                </image>
             </ImageView>
-            <Button fx:id="btn_FYP" layoutX="257.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#FYP" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #0080ff #0080ff;" text="Forgot your Password" textFill="WHITE" />
+            <Button fx:id="btn_FYP" layoutX="257.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#FYP" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #0080ff #0080ff;" text="Forgot your password" textFill="WHITE" />
          </children>
       </Pane>
       <Button fx:id="btn_Exit" alignment="CENTER" layoutX="1016.0" layoutY="213.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Exit" prefHeight="38.0" prefWidth="200.0" style="-fx-graphic: url(&quot;Images/shut-down.png&quot;); -fx-border-color: #0080ff #0080ff;" />
