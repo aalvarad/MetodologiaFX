@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SeleccionarUdioma">
+   <children>
+      <AnchorPane layoutX="-6.0" prefHeight="702.0" prefWidth="806.0">
+         <children>
+            <Label graphicTextGap="11.0" layoutX="144.0" layoutY="90.0" prefHeight="75.0" prefWidth="557.0" text="                Modificar Language" textFill="#002dd0">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+            <Label layoutX="79.0" layoutY="190.0" prefHeight="27.0" prefWidth="167.0" text="Selecciona Lenguaje" textFill="#0e49dd">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox id="cmblenguaje" layoutX="315.0" layoutY="185.0" prefHeight="37.0" prefWidth="312.0" />
+            <TableView id="tblmodifica" editable="true" layoutX="93.0" layoutY="241.0" prefHeight="338.0" prefWidth="685.0">
+               <columns>
+                  <TableColumn prefWidth="356.0" text="Original Words" />
+                  <TableColumn prefWidth="356.0" text="Forgot_yourpassword" />
+                  <TableColumn prefWidth="328.0" text="Translation" />
+               </columns>
+            </TableView>
+            <Button layoutX="221.0" layoutY="623.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-graphic: url(&quot;Images/lerror.png&quot;);" />
+            <Button id="btnmodifica" layoutX="518.0" layoutY="623.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="94.0" style="-fx-graphic: url(&quot;Images/file.png&quot;);" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
