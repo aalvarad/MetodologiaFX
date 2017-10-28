@@ -38,7 +38,7 @@ public class LogInController implements Initializable {
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
-    Connection cn = conn.conexion();
+    
     
     /**
      * Initializes the controller class.
@@ -69,10 +69,10 @@ public class LogInController implements Initializable {
     }
     
     public void LogIn(){
-        LoadLang("es");
         if (txt_User.getText().length() != 0 && !txt_Password.getText().isEmpty()){
             int rol = 0;
             try {
+                Connection cn = conn.conexion();
                 stmt = cn.prepareCall("{CALL `login`(?, ?)}");
                 stmt.setInt(1,Integer.parseInt(txt_User.getText()));
                 stmt.setString(2,txt_Password.getText());
@@ -80,6 +80,7 @@ public class LogInController implements Initializable {
                 while(rs.next()) {
                     rol =rs.getInt(1);
                 }
+                cn.close();
                 Go(rol);
                         
             } catch (Exception e) {

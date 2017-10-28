@@ -27,7 +27,7 @@ public class ForgotPassController implements Initializable {
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
-    Connection cn = conn.conexion();
+    
     
     @FXML
     public ComboBox<String> cmb_Question;
@@ -79,11 +79,13 @@ public class ForgotPassController implements Initializable {
     
     public void Preguntas(){
         try {
+            Connection cn = conn.conexion();
             stmt = cn.prepareCall("{CALL listar_pre()}");
             rs = stmt.executeQuery();
             while (rs.next()){
                 items.add(rs.getString(1));
             }
+            cn.close();
         } catch (Exception e) {
         }
     }
@@ -91,6 +93,7 @@ public class ForgotPassController implements Initializable {
     public void CheckSecQ(){
         if (txt_User.getText().length() != 0 && !txt_answer.getText().isEmpty()){
             try {
+                Connection cn = conn.conexion();
                 stmt = cn.prepareCall("{CALL Sec_Ques(?,?,?)}");
                 stmt.setInt(1, Integer.parseInt(txt_User.getText()));
                 stmt.setInt(2,cmb_preguntas.getSelectionModel().getSelectedIndex() + 1);     
@@ -100,6 +103,7 @@ public class ForgotPassController implements Initializable {
                 while(rs.next()) {
                     result = rs.getInt(1);
                 }
+                cn.close();
                 Enable(result);
             } catch (Exception e) {
             }
@@ -120,10 +124,12 @@ public class ForgotPassController implements Initializable {
         if(!txt_pass1.getText().isEmpty() && !txt_pass2.getText().isEmpty()){
             if (txt_pass1.getText().equals(txt_pass2.getText())){
                 try {
+                    Connection cn = conn.conexion();
                     stmt = cn.prepareCall("{CALL newPass(?,?)}");
                     stmt.setInt(1, Integer.parseInt(txt_User.getText()));
                     stmt.setString(2, txt_pass1.getText());
                     stmt.execute();
+                    cn.close();
                     Stage stage = (Stage) btn_save.getScene().getWindow();
                     stage.close();
                 } catch (Exception e) {
