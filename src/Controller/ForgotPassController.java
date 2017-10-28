@@ -19,10 +19,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 public class ForgotPassController implements Initializable {
-
+    Main main = new Main();
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
@@ -35,9 +36,9 @@ public class ForgotPassController implements Initializable {
     @FXML
     private TextField txt_User;
     @FXML
-    private PasswordField txt_Pass1;
+    private PasswordField txt_pass1;
     @FXML
-    private PasswordField txt_Pass2;
+    private PasswordField txt_pass2;
     @FXML
     private Label lbl_User;
     @FXML
@@ -108,27 +109,28 @@ public class ForgotPassController implements Initializable {
     public void Enable(int result){
         if (result == 1){
             pane_1.setDisable(true);
-            txt_User.setDisable(true);
             pane_2.setDisable(false);
         }
         else {
-           Main.ErrorAlert("Security Question", "Security Question", "Your security question does not match with your answer");
+           main.ErrorAlert("Security Question", "Security Question", "Your security question does not match with your answer");
         }
     }
     
     public void Save(){
-        if(!txt_Pass1.getText().isEmpty() && !txt_Pass2.getText().isEmpty()){
-            if (txt_Pass1.getText().equals(txt_Pass2.getText())){
+        if(!txt_pass1.getText().isEmpty() && !txt_pass2.getText().isEmpty()){
+            if (txt_pass1.getText().equals(txt_pass2.getText())){
                 try {
                     stmt = cn.prepareCall("{CALL newPass(?,?)}");
                     stmt.setInt(1, Integer.parseInt(txt_User.getText()));
-                    stmt.setString(2, txt_Pass1.getText());
+                    stmt.setString(2, txt_pass1.getText());
                     stmt.execute();
+                    Stage stage = (Stage) btn_save.getScene().getWindow();
+                    stage.close();
                 } catch (Exception e) {
                 }
             }
             else {
-                Main.WarningAlert("New Password", "New password", "Passwords do not match");
+                main.WarningAlert("New Password", "New password", "Passwords do not match");
             }
         }
     }
