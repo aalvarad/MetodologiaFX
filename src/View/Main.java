@@ -15,12 +15,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -67,7 +69,7 @@ public class Main extends Application {
         }
     }
     
-    public static void WarningAlert (String titulo, String cabecera, String mensaje){
+    public void WarningAlert (String titulo, String cabecera, String mensaje){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(titulo);
         alert.setHeaderText(cabecera);
@@ -75,7 +77,7 @@ public class Main extends Application {
         alert.showAndWait();
     }
     
-    public static void ErrorAlert(String titulo, String cabecera, String mensaje){
+    public void ErrorAlert(String titulo, String cabecera, String mensaje){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(titulo);
         alert.setHeaderText(cabecera);
@@ -83,6 +85,23 @@ public class Main extends Application {
         alert.showAndWait();
     }
 
+    public void newWindow(String path) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setOpacity(1);
+        stage.setTitle("App");
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+        stage.setX(bounds.getMinX());
+        stage.setY(bounds.getMinY());
+        stage.setWidth(bounds.getWidth());
+        stage.setHeight(bounds.getHeight());
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
     /**
      * @param args the command line arguments
      */
@@ -91,6 +110,8 @@ public class Main extends Application {
         conn.conexion();
         launch(args);
     }
+    
+    
     
 }
 

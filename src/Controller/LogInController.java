@@ -34,6 +34,7 @@ import javafx.stage.Modality;
  */
 public class LogInController implements Initializable {
 
+    Main main = new Main();
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
@@ -82,11 +83,11 @@ public class LogInController implements Initializable {
                 Go(rol);
                         
             } catch (Exception e) {
-                Main.ErrorAlert("Log In", "Log In error", "Database connection was not established");
+                main.ErrorAlert("Log In", "Log In error", "Database connection was not established");
             }
         }
         else {
-            Main.ErrorAlert("Log In", "Log In error", "User field or password field are empty");
+            main.ErrorAlert("Log In", "Log In error", "User field or password field are empty");
         }
     }
     
@@ -101,29 +102,16 @@ public class LogInController implements Initializable {
             break;
             case 3:
                 //Ventana Supervisor
+                //No eliminar breaks
             break;
             default:
-                Main.ErrorAlert("Log In", "Log In error", "Wrong user number or password");
+                main.ErrorAlert("Log In", "Log In error", "Wrong user number or password");
                 break;
         }
     }
     
     public void FYP () throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ForgotPass.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setOpacity(1);
-        stage.setTitle("App");
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
-        stage.setX(bounds.getMinX());
-        stage.setY(bounds.getMinY());
-        stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());
-        stage.setScene(scene);
-        stage.showAndWait();
+        main.newWindow("/View/ForgotPass.fxml");
     }
     
     public void Exit() {
