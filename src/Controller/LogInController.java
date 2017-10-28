@@ -38,7 +38,7 @@ public class LogInController implements Initializable {
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
-    
+    Connection cn = conn.conexion();
     
     /**
      * Initializes the controller class.
@@ -72,7 +72,6 @@ public class LogInController implements Initializable {
         if (txt_User.getText().length() != 0 && !txt_Password.getText().isEmpty()){
             int rol = 0;
             try {
-                Connection cn = conn.conexion();
                 stmt = cn.prepareCall("{CALL `login`(?, ?)}");
                 stmt.setInt(1,Integer.parseInt(txt_User.getText()));
                 stmt.setString(2,txt_Password.getText());
@@ -80,9 +79,22 @@ public class LogInController implements Initializable {
                 while(rs.next()) {
                     rol =rs.getInt(1);
                 }
-                cn.close();
-                Go(rol);
-                        
+                //Go(rol);
+                  switch (rol)
+        {
+            case 1:
+                //Ventana Rework
+            break;
+            case 2:
+                //Ventana Tecnico
+            break;
+            case 3:
+                main.newWindow("/View/AdminContainer.fxml");
+            break;
+            default:
+                main.ErrorAlert("Log In", "Log In error", "Wrong user number or password");
+                break;
+        }      
             } catch (Exception e) {
                 main.ErrorAlert("Log In", "Log In error", "Database connection was not established");
             }
@@ -92,23 +104,8 @@ public class LogInController implements Initializable {
         }
     }
     
-    private void Go(int rol){
-        switch (rol)
-        {
-            case 1:
-                //Ventana Rework
-            break;
-            case 2:
-                //Ventana Tecnico
-            break;
-            case 3:
-                //Ventana Supervisor
-                //No eliminar breaks
-            break;
-            default:
-                main.ErrorAlert("Log In", "Log In error", "Wrong user number or password");
-                break;
-        }
+    private void Go(int rol) throws IOException{
+        
     }
     
     public void FYP () throws IOException{

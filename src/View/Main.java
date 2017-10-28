@@ -33,7 +33,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     private Stage primaryStage;
     private AnchorPane rootLayout;
-    public static String Language = "es";
+    public static String Language = "en";
     public static ResourceBundle bundle;
     public static Locale locale;
     
