@@ -102,6 +102,7 @@ public class LogInController implements Initializable {
             break;
             case 3:
                 //Ventana Supervisor
+                //No eliminar breaks
             break;
             default:
                 main.ErrorAlert("Log In", "Log In error", "Wrong user number or password");
