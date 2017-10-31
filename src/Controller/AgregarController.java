@@ -5,13 +5,16 @@
  */
 package Controller;
 
+import View.Main;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -25,15 +28,19 @@ import javafx.scene.control.cell.TextFieldTableCell;
  * @author Fabian Castro G
  */
 public class AgregarController implements Initializable {
-@FXML private TableView<Lenguaje> tableView;
+    @FXML private TableView<Lenguaje> tableView;
     @FXML private TableColumn<Lenguaje, String> firstwordsColumn;
-        // TODO
-    
-     //These instance variables are used to create new Person objects
     @FXML private TextField firstwordsTextField;
-  
-    
     @FXML private Button detailedPersonViewButton;
+    @FXML  private Label lbl_title;
+    @FXML  private Label lbl_Language;
+    @FXML  private Label lbl_Icon;
+    @FXML  private TextField txt_language;
+    @FXML private Button btn_load_Icon;
+    @FXML private Button btn_error;
+    @FXML private Button btn_Save;
+    @FXML private TableColumn tbl_col_original;
+    @FXML private TableColumn tbl_col_modify;
     /**
     /**
      * Initializes the controller class.
@@ -41,28 +48,11 @@ public class AgregarController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-          //configure the table
-         //set up the columns in the table
-        firstwordsColumn.setCellValueFactory(new PropertyValueFactory<Lenguaje, String>("firstName"));
-       
-        
-        //load dummy data
-        tableView.setItems(getPeople());
-        
-        //Update the table to allow for the first and last name fields
-        //to be editable
-        tableView.setEditable(true);
-        firstwordsColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        
-        
-        //This will allow the table to select multiple rows at once
-        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        
-        //Disable the detailed person view button until a row is selected
-        this.detailedPersonViewButton.setDisable(true);
+          LoadTable();
+          LoadLang(Main.Language);
     }    
     
-    public ObservableList<Lenguaje>  getPeople()
+    public ObservableList<Lenguaje>  getWords()
     {
         ObservableList<Lenguaje> people = FXCollections.observableArrayList();
         people.add(new Lenguaje("Forgot_your_password"));
@@ -117,4 +107,29 @@ public class AgregarController implements Initializable {
         return people;
     }
     
+    public void LoadTable(){
+        //configure the table
+         //set up the columns in the table
+        firstwordsColumn.setCellValueFactory(new PropertyValueFactory<Lenguaje, String>("firstName"));
+          //load dummy data
+        tableView.setItems(getWords());
+         //Update the table to allow for the first and last name fields
+        //to be editable
+        tableView.setEditable(true);
+        firstwordsColumn.setCellFactory(TextFieldTableCell.forTableColumn());     
+        //This will allow the table to select multiple rows at once
+        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);   
+        //Disable the detailed person view button until a row is selected
+        this.detailedPersonViewButton.setDisable(true);
+    }
+    
+    public void LoadLang(String lang){
+        Main.locale = new Locale(lang);
+        Main.bundle = ResourceBundle.getBundle("Properties.Bundle", Main.locale);
+        lbl_title.setText(Main.bundle.getString("Add_Language"));
+        lbl_Language.setText(Main.bundle.getString("Language"));
+        lbl_Icon.setText(Main.bundle.getString("Icon"));
+        tbl_col_original.setText(Main.bundle.getString("Original_Words"));
+        tbl_col_modify.setText(Main.bundle.getString("Translation"));
+    }
 }
