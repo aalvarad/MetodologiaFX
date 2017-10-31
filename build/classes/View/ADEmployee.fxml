@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" fx:id="anc_Main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ADEmployeeController">
+   <children>
+      <ImageView fx:id="img_Teradyne" fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Teradyne.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="pan_Main" layoutX="349.0" layoutY="81.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="302.0" style="-fx-background-color: #0080ff;">
+         <children>
+            <Label fx:id="lbl_BU" layoutX="117.0" layoutY="14.0" text="Business Unit" textAlignment="CENTER" textFill="WHITE" />
+            <ChoiceBox fx:id="cmb_BU" layoutX="20.0" layoutY="41.0" prefHeight="25.0" prefWidth="264.0" />
+            <Label fx:id="lbl_Department" layoutX="120.0" layoutY="134.0" text="Department" textFill="WHITE" />
+            <Button fx:id="btn_Save" layoutX="209.0" layoutY="374.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080ff; -fx-graphic: url(&quot;Images/save.png&quot;);" />
+            <Label fx:id="lbl_Area" layoutX="140.0" layoutY="76.0" text="Area" textFill="WHITE" />
+            <ChoiceBox fx:id="cmb_Area" layoutX="19.0" layoutY="101.0" prefHeight="25.0" prefWidth="264.0" />
+            <ChoiceBox fx:id="cmb_Department" layoutX="18.0" layoutY="160.0" prefHeight="25.0" prefWidth="264.0" />
+            <ChoiceBox fx:id="cmb_Role" layoutX="19.0" layoutY="220.0" prefHeight="25.0" prefWidth="264.0" />
+            <Label fx:id="lbl_Role" layoutX="138.0" layoutY="197.0" text="Role" textFill="WHITE" />
+            <Label fx:id="lbl_Name" layoutX="59.0" layoutY="256.0" text="Name" textFill="#fafafa" />
+            <TextField fx:id="txt_Name" layoutX="18.0" layoutY="275.0" prefHeight="25.0" prefWidth="114.0" />
+            <Label fx:id="lbl_LastName" layoutX="202.0" layoutY="256.0" text="LastName" textFill="#fafafa" />
+            <TextField fx:id="txt_LastName" layoutX="171.0" layoutY="275.0" prefHeight="25.0" prefWidth="114.0" />
+            <Label fx:id="lbl_EmpNo" layoutX="116.0" layoutY="314.0" text="Employee No" textFill="#fafafa" />
+            <ChoiceBox fx:id="cmb_Employee" layoutX="20.0" layoutY="338.0" prefHeight="25.0" prefWidth="264.0" />
+            <Button fx:id="btn_Act" layoutX="58.0" layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#DActive" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080FF; -fx-graphic: url(&quot;Images/switch(2).png&quot;);" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
