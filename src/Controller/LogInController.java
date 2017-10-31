@@ -79,8 +79,19 @@ public class LogInController implements Initializable {
                 while(rs.next()) {
                     rol =rs.getInt(1);
                 }
-                //Go(rol);
-                  switch (rol)
+                Go(rol);
+                  
+            } catch (Exception e) {
+                main.ErrorAlert("Log In", "Log In error", "Database connection was not established");
+            }
+        }
+        else {
+            main.ErrorAlert("Log In", "Log In error", "User field or password field are empty");
+        }
+    }
+    
+    private void Go(int rol) throws IOException{
+        switch (rol)
         {
             case 1:
                 //Ventana Rework
@@ -95,17 +106,6 @@ public class LogInController implements Initializable {
                 main.ErrorAlert("Log In", "Log In error", "Wrong user number or password");
                 break;
         }      
-            } catch (Exception e) {
-                main.ErrorAlert("Log In", "Log In error", "Database connection was not established");
-            }
-        }
-        else {
-            main.ErrorAlert("Log In", "Log In error", "User field or password field are empty");
-        }
-    }
-    
-    private void Go(int rol) throws IOException{
-        
     }
     
     public void FYP () throws IOException{
@@ -117,7 +117,7 @@ public class LogInController implements Initializable {
         stage.close();
     }
     
-    public void Language(){
+    public void Language() throws IOException{
         //Call Language window
     }
 }

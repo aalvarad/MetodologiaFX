@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ModificarLanguaje">
+<AnchorPane id="AnchorPane" fx:id="anc_Pane" prefHeight="641.0" prefWidth="1009.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ModificarLanguaje">
    <children>
-      <TableView id="tblLenguaje" editable="true" layoutX="279.0" layoutY="230.0" prefHeight="338.0" prefWidth="685.0">
+      <TableView id="tblLenguaje" fx:id="tbl_language" editable="true" layoutX="116.0" layoutY="230.0" prefHeight="338.0" prefWidth="685.0">
          <columns>
-            <TableColumn prefWidth="356.0" text="Original Words" />
-            <TableColumn prefWidth="328.0" text="Translation" />
+            <TableColumn fx:id="tbl_col_original" prefWidth="356.0" text="Original Words" />
+            <TableColumn fx:id="tbl_col_modify" prefWidth="328.0" text="Translation" />
          </columns>
       </TableView>
-      <Button id="bnticono" layoutX="308.0" layoutY="179.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="411.0" style="-fx-graphic: url(&quot;Images/laddButton.png&quot;);" />
-      <TextField id="txtlenguaje" layoutX="308.0" layoutY="117.0" prefHeight="34.0" prefWidth="411.0" />
-      <Label layoutX="204.0" layoutY="187.0" prefHeight="24.0" prefWidth="49.0" text="ICONO" />
-      <Label layoutX="198.0" layoutY="114.0" prefHeight="40.0" prefWidth="110.0" text="LENGUAJE" />
-      <Label graphicTextGap="11.0" layoutX="152.0" layoutY="30.0" prefHeight="75.0" prefWidth="557.0" text="                Modificar Lenguage" textFill="#002dd0">
+      <Button id="bnticono" fx:id="btn_add_Icon" layoutX="308.0" layoutY="179.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="411.0" style="-fx-graphic: url(&quot;Images/laddButton.png&quot;);" />
+      <TextField id="txtlenguaje" fx:id="txt_language" layoutX="308.0" layoutY="117.0" prefHeight="34.0" prefWidth="411.0" />
+      <Label fx:id="lbl_Icon" layoutX="204.0" layoutY="187.0" prefHeight="24.0" prefWidth="49.0" text="ICONO" />
+      <Label fx:id="lbl_Lenguage" layoutX="198.0" layoutY="114.0" prefHeight="40.0" prefWidth="110.0" text="LENGUAJE" />
+      <Label fx:id="lbl_Title" graphicTextGap="11.0" layoutX="152.0" layoutY="30.0" prefHeight="75.0" prefWidth="557.0" text="                Modificar Lenguage" textFill="#002dd0">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <Button layoutX="679.0" layoutY="570.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="92.0" style="-fx-graphic: url(&quot;Images/file.png&quot;);" />
-      <Button id="btnCerrar" layoutX="390.0" layoutY="573.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" style="-fx-graphic: url(&quot;Images/errorpng&quot;);" />
+      <Button fx:id="btn_Save" layoutX="595.0" layoutY="590.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="92.0" style="-fx-graphic: url(&quot;Images/file.png&quot;);" />
+      <Button id="btnCerrar" fx:id="btn_Error" layoutX="308.0" layoutY="590.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" style="-fx-graphic: url(&quot;Images/error.png&quot;);" />
    </children>
 </AnchorPane>

@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="ap_AdminTop" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminTopController">
+<AnchorPane id="AnchorPane" fx:id="anc_AdminTop" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminTopController">
     <children>
         <Label fx:id="lbl_Administration" layoutX="71.0" layoutY="36.0" text="Administration">
             <font>
@@ -31,7 +29,7 @@
                         <Insets right="5.0" />
                     </padding>
                 </Label>
-                <Label fx:id="lbl_EmployeeNum" text="10" />
+                <Label fx:id="lbl_EmployeeNum" prefHeight="18.0" prefWidth="46.0" text="000000" textAlignment="CENTER" />
             </children>
             <padding>
                 <Insets right="10.0" />
