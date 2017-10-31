@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="anc_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="732.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminCenterController">
+   <children>
+      <ImageView fx:id="img_Teradyne" fitHeight="94.0" fitWidth="291.0" layoutX="495.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="30.0">
+         <image>
+            <Image url="@../Images/Teradyne.png" />
+         </image>
+      </ImageView>
+      <SplitPane fx:id="spl_Menu" dividerPositions="0.19606299212598424" layoutY="158.0" prefHeight="572.0" prefWidth="1267.0">
+        <items>
+          <AnchorPane fx:id="anc_Menu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="248.0" style="-fx-background-color: #0080ff;">
+               <children>
+                  <Accordion fx:id="acc_Items" layoutX="24.0" layoutY="14.0">
+                    <panes>
+                      <TitledPane fx:id="btn_Create" animated="false" text="Create">
+                        <content>
+                          <AnchorPane fx:id="anc_Create" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView fx:id="list_Create" layoutX="21.6" layoutY="18.6" prefHeight="153.0" prefWidth="186.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane fx:id="btn_Activate" animated="false" text="Activate / DeActivate">
+                        <content>
+                          <AnchorPane fx:id="anc_Activate" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="210.0">
+                                 <children>
+                                    <ListView fx:id="List_Activate" layoutX="6.0" layoutY="-10.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children></AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane fx:id="btn_Reports" animated="false" prefWidth="202.0" text="Reports">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="anc_Result" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="1010.0">
+               <children>
+                  <TabPane fx:id="tab_Result" layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="1010.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
