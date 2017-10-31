@@ -19,7 +19,7 @@
          <children>
             <Label fx:id="lbl_Title" layoutX="116.0" layoutY="93.0" text="Business Unit" textAlignment="CENTER" textFill="WHITE" />
             <TextField fx:id="txt_Bu" layoutX="19.0" layoutY="127.0" prefHeight="26.0" prefWidth="264.0" />
-            <Button fx:id="btn_Save" layoutX="131.0" layoutY="175.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080ff; -fx-graphic: url(&quot;Images/save.png&quot;);" />
+            <Button fx:id="btn_Save" layoutX="131.0" layoutY="175.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Save" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080ff; -fx-graphic: url(&quot;Images/save.png&quot;);" />
          </children>
       </Pane>
    </children>

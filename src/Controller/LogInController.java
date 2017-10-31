@@ -38,7 +38,7 @@ public class LogInController implements Initializable {
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
-    Connection cn = conn.conexion();
+    
     
     /**
      * Initializes the controller class.
@@ -70,6 +70,7 @@ public class LogInController implements Initializable {
     
     public void LogIn(){
         if (txt_User.getText().length() != 0 && !txt_Password.getText().isEmpty()){
+            Connection cn = conn.conexion();
             int rol = 0;
             try {
                 stmt = cn.prepareCall("{CALL `login`(?, ?)}");
@@ -80,7 +81,7 @@ public class LogInController implements Initializable {
                     rol =rs.getInt(1);
                 }
                 Go(rol);
-                  
+                cn.close();
             } catch (Exception e) {
                 main.ErrorAlert("Log In", "Log In error", "Database connection was not established");
             }
@@ -100,7 +101,7 @@ public class LogInController implements Initializable {
                 //Ventana Tecnico
             break;
             case 3:
-                main.newWindow("/View/AdminContainer.fxml");
+                main.newWindow("/View/AdminCenter.fxml");
             break;
             default:
                 main.ErrorAlert("Log In", "Log In error", "Wrong user number or password");
