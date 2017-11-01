@@ -115,7 +115,7 @@ public class ForgotPassController implements Initializable {
             pane_2.setDisable(false);
         }
         else {
-           main.ErrorAlert("Security Question", "Security Question", "Your security question does not match with your answer");
+           main.ErrorAlert("Security_Question", "Security_Question", "Security_Error");
         }
     }
     
@@ -135,7 +135,7 @@ public class ForgotPassController implements Initializable {
                 }
             }
             else {
-                main.WarningAlert("New Password", "New password", "Passwords do not match");
+                main.WarningAlert("New_Password", "New_password", "Password_error");
             }
         }
     }

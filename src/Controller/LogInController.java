@@ -83,11 +83,11 @@ public class LogInController implements Initializable {
                 Go(rol);
                 cn.close();
             } catch (Exception e) {
-                main.ErrorAlert("Log In", "Log In error", "Database connection was not established");
+                main.ErrorAlert("Log_In", "Log_In_error", "Database_connection_error");
             }
         }
         else {
-            main.ErrorAlert("Log In", "Log In error", "User field or password field are empty");
+            main.ErrorAlert("Log In", "Log In error", "Empty_field");
         }
     }
     
