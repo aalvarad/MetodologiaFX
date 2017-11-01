@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -9,27 +9,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" fx:id="anc_Main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ADEmployeeController">
+<AnchorPane id="AnchorPane" fx:id="anc_Main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ADEmployeeController">
    <children>
       <ImageView fx:id="img_Teradyne" fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/Teradyne.png" />
          </image>
       </ImageView>
-      <Pane fx:id="pan_Main" layoutX="349.0" layoutY="81.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="302.0" style="-fx-background-color: #0080ff;">
+      <Pane fx:id="pan_Main" layoutX="349.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="302.0" style="-fx-background-color: #0080ff;">
          <children>
             <Label fx:id="lbl_BU" layoutX="117.0" layoutY="14.0" text="Business Unit" textAlignment="CENTER" textFill="WHITE" />
-            <ChoiceBox fx:id="cmb_BU" layoutX="20.0" layoutY="41.0" prefHeight="25.0" prefWidth="264.0" />
             <Label fx:id="lbl_Department" layoutX="120.0" layoutY="134.0" text="Department" textFill="WHITE" />
             <Button fx:id="btn_Save" layoutX="133.0" layoutY="374.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080ff; -fx-graphic: url(&quot;Images/save.png&quot;);" />
             <Label fx:id="lbl_Area" layoutX="140.0" layoutY="76.0" text="Area" textFill="WHITE" />
-            <ChoiceBox fx:id="cmb_Area" layoutX="19.0" layoutY="101.0" prefHeight="25.0" prefWidth="264.0" />
-            <ChoiceBox fx:id="cmb_Department" layoutX="18.0" layoutY="160.0" prefHeight="25.0" prefWidth="264.0" />
             <Label fx:id="lbl_EmpNo" layoutX="114.0" layoutY="198.0" text="Employee No" textFill="#fafafa" />
-            <ChoiceBox fx:id="cmb_Employee" layoutX="18.0" layoutY="222.0" prefHeight="25.0" prefWidth="264.0" />
             <Button fx:id="btn_Act" layoutX="133.0" layoutY="324.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#DActive" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080FF; -fx-graphic: url(&quot;Images/switch(2).png&quot;);" />
             <Label fx:id="lbl_Name" layoutX="134.0" layoutY="260.0" text="Name" textFill="#fafafa" />
-            <TextField fx:id="txt_Name" layoutX="19.0" layoutY="279.0" prefHeight="25.0" prefWidth="264.0" />
+            <TextField fx:id="txt_Name" layoutX="11.0" layoutY="277.0" prefHeight="25.0" prefWidth="264.0" />
+            <ComboBox fx:id="cmb_BU" layoutX="8.0" layoutY="44.0" onAction="#listar_area" prefHeight="25.0" prefWidth="264.0" />
+            <ComboBox fx:id="cmb_area" layoutX="11.0" layoutY="103.0" onAction="#listar_departamentos" prefHeight="25.0" prefWidth="264.0" />
+            <ComboBox fx:id="cmb_dep" layoutX="13.0" layoutY="163.0" onAction="#listar_emp" prefHeight="25.0" prefWidth="264.0" />
+            <ComboBox fx:id="cmb_emp" layoutX="13.0" layoutY="224.0" onAction="#mostrar_nombre" prefHeight="25.0" prefWidth="264.0" />
          </children>
       </Pane>
    </children>

@@ -76,12 +76,13 @@ public class CreateEmployeeController implements Initializable {
     @FXML
     private Label lbl_Secq;
     @FXML
-    private ChoiceBox cmb_Secq;
+    private ChoiceBox<String> cmb_Secq;
     
     ObservableList<String> bus = FXCollections.observableArrayList();
     ObservableList<String> area = FXCollections.observableArrayList();
     ObservableList<String> dep = FXCollections.observableArrayList();
     ObservableList<String> rol = FXCollections.observableArrayList();
+    ObservableList<String> preguntas= FXCollections.observableArrayList();
     
     
     @Override
@@ -90,6 +91,7 @@ public class CreateEmployeeController implements Initializable {
         listar_area();
         listar_dep();
         listar_rol();
+        Preguntas();
         cmb_BU.setItems(bus);
         cmb_Area.setItems(area);
         cmb_Department.setItems(dep);
@@ -98,6 +100,8 @@ public class CreateEmployeeController implements Initializable {
         cmb_Area.setValue(area.get(0));
         cmb_Department.setValue(dep.get(0));
         cmb_Role.setValue(rol.get(0));
+        cmb_Secq.setItems(preguntas);
+        cmb_Secq.setValue(preguntas.get(0));
     }    
     
      public void listar_bu(){
@@ -152,6 +156,20 @@ public class CreateEmployeeController implements Initializable {
         }
     }
             
+             public void Preguntas(){
+        try {
+            Connection cn = conn.conexion();
+            stmt = cn.prepareCall("{CALL listar_pre()}");
+            rs = stmt.executeQuery();
+            while (rs.next()){
+                preguntas.add(rs.getString(1));
+            }
+            cn.close();
+        } catch (Exception e) {
+        }
+    }
+            
+    @FXML
     public void Save (){
         if (!txt_Answer.getText().isEmpty() && !cmb_Department.getSelectionModel().getSelectedItem().isEmpty() && !cmb_Role.getSelectionModel().getSelectedItem().isEmpty() && !txt_Name.getText().isEmpty() && !txt_LastName.getText().isEmpty() && !txt_Password.getText().isEmpty() && !txt_ConfirmPass.getText().isEmpty() && !txt_EmpNo.getText().isEmpty()){
             if (txt_Password.getText().equals(txt_ConfirmPass)){
