@@ -19,7 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class CreateEmployeeController implements Initializable {
-        
+    View.Main main = new View.Main();
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
@@ -69,8 +69,15 @@ public class CreateEmployeeController implements Initializable {
     private Label lbl_EmpNo;
     @FXML
     private TextField txt_EmpNo;
-
-
+    @FXML
+    private TextField txt_Answer;        
+    @FXML
+    private Label lbl_Answer;
+    @FXML
+    private Label lbl_Secq;
+    @FXML
+    private ChoiceBox cmb_Secq;
+    
     ObservableList<String> bus = FXCollections.observableArrayList();
     ObservableList<String> area = FXCollections.observableArrayList();
     ObservableList<String> dep = FXCollections.observableArrayList();
@@ -142,6 +149,38 @@ public class CreateEmployeeController implements Initializable {
             }
             cn.close();
         } catch (Exception e) {
+        }
+    }
+            
+    public void Save (){
+        if (!txt_Answer.getText().isEmpty() && !cmb_Department.getSelectionModel().getSelectedItem().isEmpty() && !cmb_Role.getSelectionModel().getSelectedItem().isEmpty() && !txt_Name.getText().isEmpty() && !txt_LastName.getText().isEmpty() && !txt_Password.getText().isEmpty() && !txt_ConfirmPass.getText().isEmpty() && !txt_EmpNo.getText().isEmpty()){
+            if (txt_Password.getText().equals(txt_ConfirmPass)){
+                String name = txt_Name.getText() + txt_LastName.getText();
+                Connection cn = conn.conexion();
+                int read = 0;
+                try {
+                stmt = cn.prepareCall("{CALL `addEmpleado`()}");
+                stmt.setInt(1, Integer.parseInt(txt_EmpNo.getText()));
+                stmt.setString(2, name);
+                stmt.setString(3, txt_Password.getText());
+                stmt.setInt(4, cmb_Secq.getSelectionModel().getSelectedIndex());
+                stmt.setString(5, txt_Answer.getText());
+                stmt.setString(6, cmb_Department.getSelectionModel().getSelectedItem());
+                stmt.setInt(7, cmb_Role.getSelectionModel().getSelectedIndex());
+                rs = stmt.executeQuery();
+                while(rs.next()) {
+                    read =rs.getInt(1);
+                }
+                cn.close();
+                main.CheckADD(read);
+                } catch (Exception e) {
+                    main.ErrorAlert("Employee", "Employee", "Database_connection_error");
+                }
+            }
+            else {
+                main.ErrorAlert("Employee", "Employee", "Password_error");
+            }
+            
         }
     }
     

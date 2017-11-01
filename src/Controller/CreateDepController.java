@@ -28,31 +28,23 @@ import javafx.scene.layout.Pane;
  * @author castrorj
  */
 public class CreateDepController implements Initializable {
-    
+    View.Main main = new View.Main();
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
 
-    @FXML
-    private AnchorPane anc_Main;
-    @FXML
-    private ImageView img_Teradyne;
-    @FXML
-    private Pane pan_Main;
-    @FXML
-    private Label lbl_BU;
-    @FXML
-    private ChoiceBox<String> cmb_BU;
-    @FXML
-    private Label lbl_Department;
-    @FXML
-    private TextField txt_Department;
-    @FXML
-    private Button btn_Save;
-    @FXML
-    private Label lbl_Area;
-    @FXML
-    private ChoiceBox<String> cmb_Area;
+    @FXML private AnchorPane anc_Main;
+    @FXML private ImageView img_Teradyne;
+    @FXML private Pane pan_Main;
+    @FXML private Label lbl_BU;
+    @FXML private ChoiceBox<String> cmb_BU;
+    @FXML private Label lbl_Department;
+    @FXML private TextField txt_Department;
+    @FXML private Label lbl_Dep_Name;
+    @FXML private TextField txt_Dep_Name;
+    @FXML private Button btn_Save;
+    @FXML private Label lbl_Area;
+    @FXML private ChoiceBox<String> cmb_Area;
     
     
     ObservableList<String> bus = FXCollections.observableArrayList();
@@ -95,4 +87,27 @@ public class CreateDepController implements Initializable {
         }
     }
     
+    public void Save (){
+        if (!cmb_Area.getSelectionModel().getSelectedItem().isEmpty() && !txt_Department.getText().isEmpty() && !txt_Dep_Name.getText().isEmpty()){
+            Connection cn = conn.conexion();
+            int read = 0;
+            try {
+                stmt = cn.prepareCall("{CALL `addDepartamento`(?,?,?)}");
+                stmt.setInt(1,Integer.parseInt(txt_Department.getText()));
+                stmt.setString(2,txt_Dep_Name.getText());
+                stmt.setString(3,cmb_Area.getSelectionModel().getSelectedItem());
+                rs = stmt.executeQuery();
+                while(rs.next()) {
+                    read =rs.getInt(1);
+                }
+                cn.close();
+                main.CheckADD(read);
+            } catch (Exception e) {
+                main.ErrorAlert("Department", "Department", "Database_connection_error");
+            }
+        }
+        else {
+            main.ErrorAlert("Department", "Department", "empty_field");
+        }
+    }
 }

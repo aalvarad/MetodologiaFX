@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import View.Main;
 import java.net.URL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -29,7 +30,7 @@ import javax.print.DocFlavor;
  * @author castrorj
  */
 public class CreateProdNoController implements Initializable {
-    
+    Main main = new Main();
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
@@ -116,4 +117,26 @@ public class CreateProdNoController implements Initializable {
         }
     }
     
+        public void Save (){
+        if (!cmb_Department.getSelectionModel().getSelectedItem().isEmpty() && !txt_ProdNo.getText().isEmpty()){
+            Connection cn = conn.conexion();
+            int read = 0;
+            try {
+                stmt = cn.prepareCall("{CALL `addProd`(?,?)}");
+                stmt.setString(1,txt_ProdNo.getText());
+                stmt.setString(2,cmb_Department.getSelectionModel().getSelectedItem());
+                rs = stmt.executeQuery();
+                while(rs.next()) {
+                    read =rs.getInt(1);
+                }
+                cn.close();
+                main.CheckADD(read);
+            } catch (Exception e) {
+                main.ErrorAlert("Department", "Department", "Database_connection_error");
+            }
+        }
+        else {
+            main.ErrorAlert("Department", "Department", "empty_field");
+        }
+    }
 }

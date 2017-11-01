@@ -23,6 +23,7 @@ public class CreateAreaController implements Initializable {
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
+    View.Main main = new View.Main();
 
     @FXML
     private AnchorPane anc_Main;
@@ -53,7 +54,7 @@ public class CreateAreaController implements Initializable {
         cmb_BU.setValue(bus.get(0));
     } 
     
-        public void listar_bu(){
+    public void listar_bu(){
         try {
             Connection cn = conn.conexion();
             stmt = cn.prepareCall("{CALL listar_BU()}");
@@ -63,6 +64,29 @@ public class CreateAreaController implements Initializable {
             }
             cn.close();
         } catch (Exception e) {
+        }
+    }
+        
+    public void Save (){
+        if (!cmb_BU.getSelectionModel().getSelectedItem().isEmpty() && !txt_Area.getText().isEmpty()){
+            Connection cn = conn.conexion();
+            int read = 0;
+            try {
+                stmt = cn.prepareCall("{CALL `addArea`(?,?)}");
+                stmt.setString(1,txt_Area.getText());
+                stmt.setString(2,cmb_BU.getSelectionModel().getSelectedItem());
+                rs = stmt.executeQuery();
+                while(rs.next()) {
+                    read =rs.getInt(1);
+                }
+                cn.close();
+                main.CheckADD(read);
+            } catch (Exception e) {
+                main.ErrorAlert("Area", "Area", "Database_connection_error");
+            }
+        }
+        else {
+            main.ErrorAlert("Area", "Area", "empty_field");
         }
     }
     
