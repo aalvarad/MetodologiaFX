@@ -50,6 +50,7 @@ public class AdminCenterController implements Initializable {
         Create.add("Department");
         Create.add("Employee");
         Create.add("Prod Number");
+        Create.add("Rework Type");
         list_Create.setItems(Create);
         List_Activate.setItems(Create);
     }
@@ -90,6 +91,9 @@ public class AdminCenterController implements Initializable {
                     case 4:
                         NewTabCreate("/View/CreateProdNo.fxml", "Prod No");
                         break;
+                    case 5:
+                        NewTabCreate("/View/CreateRWtype.fxml", "Rework Type");
+                        break;
                     default:
                         break;
                 }
@@ -118,6 +122,9 @@ public class AdminCenterController implements Initializable {
                         break;
                     case 4:
                         NewTabCreate("/View/ADProdNo.fxml", "Prod No");
+                        break;
+                    case 5:
+                        NewTabCreate("/View/ADRWtype.fxml", "Rework Type");
                         break;
                     default:
                         break;
