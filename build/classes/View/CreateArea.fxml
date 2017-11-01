@@ -22,7 +22,7 @@
             <ChoiceBox fx:id="cmb_BU" layoutX="19.0" layoutY="120.0" prefHeight="25.0" prefWidth="264.0" />
             <Label fx:id="lbl_Area" layoutX="137.0" layoutY="154.0" text="Area" textFill="WHITE" />
             <TextField fx:id="txt_Area" layoutX="19.0" layoutY="184.0" prefHeight="25.0" prefWidth="264.0" />
-            <Button fx:id="btn_Save" layoutX="125.0" layoutY="228.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080ff; -fx-graphic: url(&quot;Images/save.png&quot;);" />
+            <Button fx:id="btn_Save" layoutX="125.0" layoutY="228.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Save" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080ff; -fx-graphic: url(&quot;Images/save.png&quot;);" />
          </children>
       </Pane>
    </children>
