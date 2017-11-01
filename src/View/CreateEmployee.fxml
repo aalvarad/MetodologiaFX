@@ -17,27 +17,31 @@
             <Image url="@../Images/Teradyne.png" />
          </image>
       </ImageView>
-      <Pane fx:id="pan_Main" layoutX="349.0" layoutY="81.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="302.0" style="-fx-background-color: #0080ff;">
+      <Pane fx:id="pan_Main" layoutX="186.0" layoutY="83.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="628.0" style="-fx-background-color: #0080ff;">
          <children>
             <Label fx:id="lbl_BU" layoutX="117.0" layoutY="14.0" text="Business Unit" textAlignment="CENTER" textFill="WHITE" />
             <ChoiceBox fx:id="cmb_BU" layoutX="20.0" layoutY="41.0" prefHeight="25.0" prefWidth="264.0" />
             <Label fx:id="lbl_Department" layoutX="120.0" layoutY="134.0" text="Department" textFill="WHITE" />
-            <Button fx:id="btn_Save" layoutX="209.0" layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080ff; -fx-graphic: url(&quot;Images/save.png&quot;);" />
+            <Button fx:id="btn_Save" layoutX="480.0" layoutY="341.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Save" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080ff; -fx-graphic: url(&quot;Images/save.png&quot;);" />
             <Label fx:id="lbl_Area" layoutX="140.0" layoutY="76.0" text="Area" textFill="WHITE" />
             <ChoiceBox fx:id="cmb_Area" layoutX="19.0" layoutY="101.0" prefHeight="25.0" prefWidth="264.0" />
             <ChoiceBox fx:id="cmb_Department" layoutX="18.0" layoutY="160.0" prefHeight="25.0" prefWidth="264.0" />
             <ChoiceBox fx:id="cmb_Role" layoutX="19.0" layoutY="220.0" prefHeight="25.0" prefWidth="264.0" />
             <Label fx:id="lbl_Role" layoutX="138.0" layoutY="197.0" text="Role" textFill="WHITE" />
-            <Label fx:id="lbl_Name" layoutX="59.0" layoutY="256.0" text="Name" textFill="#fafafa" />
-            <TextField fx:id="txt_Name" layoutX="18.0" layoutY="275.0" prefHeight="25.0" prefWidth="114.0" />
-            <Label fx:id="lbl_LastName" layoutX="202.0" layoutY="256.0" text="LastName" textFill="#fafafa" />
-            <TextField fx:id="txt_LastName" layoutX="171.0" layoutY="275.0" prefHeight="25.0" prefWidth="114.0" />
-            <PasswordField fx:id="txt_Password" layoutX="18.0" layoutY="325.0" prefHeight="25.0" prefWidth="114.0" />
-            <PasswordField fx:id="txt_ConfirmPass" layoutX="171.0" layoutY="325.0" prefHeight="25.0" prefWidth="114.0" />
-            <Label fx:id="lbl_Password" layoutX="50.0" layoutY="306.0" text="Password" textFill="#fafafa" />
-            <Label fx:id="lbl_ConfirmPass" layoutX="171.0" layoutY="306.0" text="Confirm Password" textFill="#fafafa" />
-            <Label fx:id="lbl_EmpNo" layoutX="39.0" layoutY="357.0" text="Employee No" textFill="#fafafa" />
-            <TextField fx:id="txt_EmpNo" layoutX="18.0" layoutY="381.0" prefHeight="25.0" prefWidth="114.0" />
+            <Label fx:id="lbl_Name" layoutX="439.0" layoutY="14.0" text="Name" textFill="#fafafa" />
+            <TextField fx:id="txt_Name" layoutX="323.0" layoutY="41.0" prefHeight="25.0" prefWidth="264.0" />
+            <Label fx:id="lbl_LastName" layoutX="429.0" layoutY="76.0" text="LastName" textFill="#fafafa" />
+            <TextField fx:id="txt_LastName" layoutX="324.0" layoutY="101.0" prefHeight="25.0" prefWidth="264.0" />
+            <PasswordField fx:id="txt_Password" layoutX="323.0" layoutY="160.0" prefHeight="25.0" prefWidth="264.0" />
+            <PasswordField fx:id="txt_ConfirmPass" layoutX="323.0" layoutY="220.0" prefHeight="25.0" prefWidth="264.0" />
+            <Label fx:id="lbl_Password" layoutX="431.0" layoutY="134.0" text="Password" textFill="#fafafa" />
+            <Label fx:id="lbl_ConfirmPass" layoutX="408.0" layoutY="197.0" text="Confirm Password" textFill="#fafafa" />
+            <Label fx:id="lbl_EmpNo" layoutX="420.0" layoutY="259.0" text="Employee No" textFill="#fafafa" />
+            <TextField fx:id="txt_EmpNo" layoutX="323.0" layoutY="283.0" prefHeight="25.0" prefWidth="264.0" />
+            <ChoiceBox fx:id="cmb_Secq" layoutX="19.0" layoutY="283.0" prefHeight="25.0" prefWidth="264.0" />
+            <Label fx:id="lbl_Secq" layoutX="103.0" layoutY="259.0" text="Security Question" textFill="WHITE" />
+            <Label fx:id="lbl_Answer" layoutX="130.0" layoutY="318.0" text="Answer" textFill="#fafafa" />
+            <TextField fx:id="txt_Answer" layoutX="18.0" layoutY="339.0" prefHeight="25.0" prefWidth="264.0" />
          </children>
       </Pane>
    </children>
