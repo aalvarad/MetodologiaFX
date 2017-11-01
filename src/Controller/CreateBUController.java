@@ -28,9 +28,7 @@ public class CreateBUController implements Initializable {
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
-    /**
-     * Initializes the controller class.
-     */
+
     
     @FXML private Button btn_Save;
     @FXML private Label Lbl_Title;
