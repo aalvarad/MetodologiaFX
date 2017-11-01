@@ -29,22 +29,14 @@ public class ADAreaController implements Initializable {
     CallableStatement stmt;
     ResultSet rs;
     
-    @FXML
-    private AnchorPane anc_Main;
-    @FXML
-    private ImageView img_Teradyne;
-    @FXML
-    private Pane pan_Main;
-    @FXML
-    private Label lbl_BU;
-    @FXML
-    private Label lbl_Area;
-    @FXML
-    private Button btn_Save;
-    @FXML
-    private ChoiceBox<String> cmb_area;
-    @FXML
-    private Button btn_Act;
+    @FXML private AnchorPane anc_Main;
+    @FXML private ImageView img_Teradyne;
+    @FXML private Pane pan_Main;
+    @FXML private Label lbl_BU;
+    @FXML private Label lbl_Area;
+    @FXML private Button btn_Save;
+    @FXML private ChoiceBox<String> cmb_area;
+    @FXML private Button btn_Act;
 
 
     ObservableList<String> bus = FXCollections.observableArrayList();

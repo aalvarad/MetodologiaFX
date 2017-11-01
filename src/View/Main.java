@@ -18,6 +18,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -71,17 +72,26 @@ public class Main extends Application {
     
     public void WarningAlert (String titulo, String cabecera, String mensaje){
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle(titulo);
-        alert.setHeaderText(cabecera);
-        alert.setContentText(mensaje);
+        alert.setTitle(bundle.getString(titulo));
+        alert.setHeaderText(bundle.getString(cabecera));
+        alert.setContentText(bundle.getString(mensaje));
+        alert.showAndWait();
+    }
+    
+    public void InfoAlert(String titulo, String cabecera, String mensaje){
+    Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(bundle.getString(titulo));
+        alert.setHeaderText(bundle.getString(cabecera));
+        alert.setContentText(bundle.getString(mensaje));
+
         alert.showAndWait();
     }
     
     public void ErrorAlert(String titulo, String cabecera, String mensaje){
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(titulo);
-        alert.setHeaderText(cabecera);
-        alert.setContentText(mensaje);
+        alert.setTitle(bundle.getString(titulo));
+        alert.setHeaderText(bundle.getString(cabecera));
+        alert.setContentText(bundle.getString(mensaje));
         alert.showAndWait();
     }
 
@@ -101,6 +111,16 @@ public class Main extends Application {
         stage.setHeight(bounds.getHeight());
         stage.setScene(scene);
         stage.showAndWait();
+    }
+    
+    public void CheckADD (int valor){
+        if (valor == 1){
+            InfoAlert("Success", "Success", "Added_DB");
+        }
+        else 
+        {
+            ErrorAlert("Error_DB", "Error_DB", "Error_could_not_be_added");
+        }
     }
     /**
      * @param args the command line arguments
