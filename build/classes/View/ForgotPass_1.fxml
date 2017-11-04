@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ForgotPassController">
+   <children>
+      <ImageView fx:id="img_Empresa" fitHeight="161.0" fitWidth="453.0" layoutX="418.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Teradyne.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="pane_1" layoutX="57.0" layoutY="157.0" prefHeight="545.0" prefWidth="523.0" style="-fx-background-color: #0080ff#0080ff;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="700.0">
+         <children>
+            <Label fx:id="lbl_question" alignment="CENTER" layoutX="165.0" layoutY="92.0" text="Choose your security question" textFill="WHITE" wrapText="true" />
+            <Label fx:id="lbl_answer" layoutX="235.0" layoutY="208.0" text="Answer" textFill="#fffefe" />
+            <TextField fx:id="txt_answer" layoutX="75.0" layoutY="256.0" prefHeight="29.0" prefWidth="372.0" style="-fx-border-color: #0080ff#0080ff;" />
+            <Button fx:id="btn_login" layoutX="239.0" layoutY="315.0" mnemonicParsing="false" onAction="#CheckSecQ" prefHeight="38.0" prefWidth="38.0" style="-fx-graphic: url(&quot;Images/log-in.png&quot;) url(&quot;Images/check.png&quot;); -fx-background-color: #0080ff#0080ff;" />
+            <Label fx:id="lbl_User" layoutX="80.0" layoutY="33.0" text="Employee Number" textFill="WHITE" />
+            <TextField fx:id="txt_User" layoutX="239.0" layoutY="28.0" />
+            <ChoiceBox fx:id="cmb_preguntas" layoutX="81.0" layoutY="150.0" prefHeight="25.0" prefWidth="354.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane_2" disable="true" layoutX="645.0" layoutY="160.0" prefHeight="545.0" prefWidth="523.0" style="-fx-background-color: #0080ff#0080ff;" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="57.0">
+         <children>
+            <PasswordField fx:id="txt_pass1" disable="false" layoutX="77.0" layoutY="139.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="372.0" />
+            <PasswordField fx:id="txt_pass2" disable="false" layoutX="77.0" layoutY="260.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="372.0" />
+            <Button fx:id="btn_save" disable="false" layoutX="240.0" layoutY="316.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Save" prefHeight="38.0" prefWidth="38.0" style="-fx-graphic: url(&quot;Images/log-in.png&quot;) url(&quot;Images/check.png&quot;) url(&quot;Images/log-in.png&quot;) url(&quot;Images/save.png&quot;); -fx-background-color: #0080ff#0080ff #0080ff#0080ff;" />
+            <Label fx:id="lbl_newP" disable="false" layoutX="214.0" layoutY="91.0" text="New Password" textFill="WHITE" />
+            <Label fx:id="lbl_confirmP" disable="false" layoutX="206.0" layoutY="221.0" text="Confirm password" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

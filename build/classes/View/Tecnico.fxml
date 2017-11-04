@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TecnicoController">
+   <children>
+      <Pane layoutX="391.0" layoutY="99.0" prefHeight="538.0" prefWidth="564.0" style="-fx-background-color: #0080ff;">
+         <children>
+            <Label fx:id="lbl_tecnico" layoutX="186.0" layoutY="23.0" prefHeight="41.0" prefWidth="169.0" text="Tecnico" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_usua" layoutX="71.0" layoutY="94.0" text="User" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_usua" layoutX="140.0" layoutY="99.0" prefHeight="25.0" prefWidth="339.0" />
+            <Label fx:id="lbl_prodNum" layoutX="57.0" layoutY="162.0" text="Produc Number" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="chb_prodNum" layoutX="255.0" layoutY="167.0" prefHeight="25.0" prefWidth="219.0" />
+            <Label fx:id="lbl_SeNum" layoutX="50.0" layoutY="223.0" text="Serial Number" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_SeriNum" layoutX="208.0" layoutY="228.0" prefHeight="25.0" prefWidth="268.0" />
+            <Label fx:id="lbl_Rework" layoutX="43.0" layoutY="288.0" text="RewokType" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="chb_SerNum" layoutX="207.0" layoutY="298.0" prefHeight="25.0" prefWidth="268.0" />
+            <Label fx:id="lbl_remark" layoutX="118.0" layoutY="323.0" text="Remarks" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txt_Area" layoutX="40.0" layoutY="366.0" prefHeight="135.0" prefWidth="493.0" />
+         </children>
+      </Pane>
+      <ImageView fx:id="img_logo" fitHeight="74.0" fitWidth="262.0" layoutX="494.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(&quot;src/Images/Teradyne.png&quot;);">
+         <image>
+            <Image url="@../Images/Teradyne.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

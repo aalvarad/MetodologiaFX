@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReworkController">
+   <children>
+      <Pane fx:id="pane" layoutX="355.0" layoutY="93.0" prefHeight="416.0" prefWidth="759.0" style="-fx-background-color: #0080ff;">
+         <children>
+            <Label fx:id="lbl_rework" layoutX="364.0" layoutY="39.0" prefHeight="55.0" prefWidth="193.0" text="Rework  Menu" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="img_Welder" fitHeight="63.0" fitWidth="65.0" layoutX="242.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(&quot;src/Images/welder.png&quot;);">
+               <image>
+                  <Image url="@../Images/welder.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btn_Run" layoutX="305.0" layoutY="206.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-graphic: url(&quot;src/Images/run.png&quot;); -fx-border-color: #0080ff;" />
+            <Button fx:id="btn_Stop" layoutX="108.0" layoutY="206.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-graphic: url(&quot;src/Images/stop.png&quot;); -fx-border-color: #0080ff;" />
+            <Button fx:id="btn_Salir" layoutX="500.0" layoutY="206.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-graphic: url(&quot;src/Images/exit.png&quot;); -fx-border-color: #0080ff;" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="63.0" fitWidth="200.0" layoutX="682.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Teradyne.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

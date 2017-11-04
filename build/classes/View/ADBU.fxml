@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,9 +20,14 @@
       <Pane fx:id="pan_Main" layoutX="349.0" layoutY="83.0" prefHeight="426.0" prefWidth="302.0" style="-fx-background-color: #0080ff;">
          <children>
             <Label fx:id="lbl_Title" layoutX="116.0" layoutY="93.0" text="Business Unit" textAlignment="CENTER" textFill="WHITE" />
-            <Button fx:id="btn_Save" layoutX="132.0" layoutY="213.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080ff; -fx-graphic: url(&quot;Images/save.png&quot;);" />
-            <Button fx:id="btn_Act" layoutX="132.0" layoutY="168.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#DActive" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080FF; -fx-graphic: url(&quot;Images/switch(2).png&quot;);" />
+            <Button fx:id="btn_Save" layoutX="132.0" layoutY="238.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" style="-fx-background-color: #0080ff; -fx-graphic: url(&quot;Images/save.png&quot;);" />
             <ChoiceBox fx:id="cmb_Bu" layoutX="19.0" layoutY="121.0" prefHeight="25.0" prefWidth="264.0" />
+            <RadioButton fx:id="rdb_Activate" layoutX="121.0" layoutY="161.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" style="-fx-graphic: url(&quot;Images/switch.png&quot;);">
+               <toggleGroup>
+                  <ToggleGroup fx:id="RDB" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="rdb_Deactivate" layoutX="121.0" layoutY="191.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" selected="true" style="-fx-graphic: url(&quot;Images/round-toggle.png&quot;);" toggleGroup="$RDB" />
          </children>
       </Pane>
    </children>

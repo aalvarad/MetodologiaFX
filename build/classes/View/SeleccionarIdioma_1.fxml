@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SeleccionarUdioma">
+   <children>
+      <AnchorPane layoutX="-28.0" prefHeight="735.0" prefWidth="1280.0">
+         <children>
+            <Label fx:id="lbl_Modifica_leng" graphicTextGap="11.0" layoutX="266.0" layoutY="91.0" prefHeight="75.0" prefWidth="557.0" text="                Modificar Languaje" textFill="#0080ff">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_Selec_lengua" layoutX="398.0" layoutY="190.0" prefHeight="27.0" prefWidth="167.0" text="Selecciona Lenguaje" textFill="#0080ff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TableView id="tblmodifica" fx:id="tbl_traductora" editable="true" layoutX="298.0" layoutY="242.0" prefHeight="338.0" prefWidth="685.0" style="-fx-border-color: #0080ff;">
+               <columns>
+                  <TableColumn prefWidth="356.0" text="Original Words" />
+                  <TableColumn prefWidth="356.0" text="Translation" />
+                  <TableColumn prefWidth="328.0" text="Translation" />
+               </columns>
+            </TableView>
+            <Button fx:id="btn_Salir" layoutX="447.0" layoutY="612.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-graphic: url(&quot;src/Images/error.png&quot;); -fx-border-color: #0080ff;" textFill="#0080ff" />
+            <Button id="btnmodifica" fx:id="btn_Modif" layoutX="792.0" layoutY="612.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-graphic: url(&quot;src/Images/file.png&quot;); -fx-border-color: #0080ff;" />
+            <ChoiceBox fx:id="chb_Selec_Leng" layoutX="588.0" layoutY="183.0" prefHeight="33.0" prefWidth="243.0" style="-fx-border-color: #0080ff;" />
+            <ImageView fitHeight="66.0" fitWidth="243.0" layoutX="517.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Teradyne.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
