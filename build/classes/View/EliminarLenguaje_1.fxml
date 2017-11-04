@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EliminarLenfuajeController">
+   <children>
+      <ImageView fitHeight="75.0" fitWidth="301.0" layoutX="413.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Teradyne.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="Pa_Elim" layoutX="317.0" layoutY="141.0" prefHeight="468.0" prefWidth="443.0" style="-fx-background-color: #0080ff#0080ff;">
+         <children>
+            <Label fx:id="lbl_EliminaLen" graphicTextGap="11.0" layoutX="6.0" layoutY="30.0" prefHeight="75.0" prefWidth="472.0" text="                Eliminar Lenguaje" textFill="WHITE">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_SelecLen" layoutX="18.0" layoutY="102.0" prefHeight="34.0" prefWidth="196.0" text="Selecciona lenguaje" textFill="#393535">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="chb_Selec_Leng" layoutX="200.0" layoutY="102.0" prefHeight="34.0" prefWidth="202.0" style="-fx-border-color: #0080ff;" />
+            <Button id="btnCerrar" fx:id="btn_salir" layoutX="70.0" layoutY="209.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-graphic: url(&quot;src/Images/lerror.png&quot;); -fx-border-color: #0080ff;" textFill="#0080ff" />
+            <Button id="btnEliminar" fx:id="btn_Elimina" layoutX="242.0" layoutY="209.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-graphic: url(&quot;src/Images/eliminar.png&quot;); -fx-border-color: #0080ff;" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

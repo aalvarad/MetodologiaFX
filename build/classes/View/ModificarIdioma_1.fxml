@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ModificarLanguaje">
+   <children>
+      <TableView id="tblLenguaje" editable="true" layoutX="361.0" layoutY="294.0" prefHeight="338.0" prefWidth="685.0" style="-fx-border-color: #0080ff;">
+         <columns>
+            <TableColumn prefWidth="356.0" text="Original Words" />
+            <TableColumn prefWidth="328.0" text="Translation" />
+         </columns>
+      </TableView>
+      <Button id="bnticono" fx:id="btn_Icono" layoutX="555.0" layoutY="228.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="411.0" style="-fx-graphic: url(&quot;src/Images/laddButton.png&quot;); -fx-border-color: #0080ff;" />
+      <TextField id="txtlenguaje" fx:id="txt_lenguaje" layoutX="555.0" layoutY="175.0" prefHeight="34.0" prefWidth="411.0" style="-fx-border-color: #0080ff;" />
+      <Label fx:id="lbl_icono" layoutX="459.0" layoutY="236.0" prefHeight="24.0" prefWidth="49.0" text="ICONO" textFill="#0080ff" />
+      <Label fx:id="lbl_lenguaje" layoutX="447.0" layoutY="172.0" prefHeight="40.0" prefWidth="74.0" text="LENGUAJE" textFill="#0080ff" />
+      <Label fx:id="lbl_Modificaleng" graphicTextGap="11.0" layoutX="362.0" layoutY="86.0" prefHeight="75.0" prefWidth="557.0" text="                Modificar Lenguaje" textFill="#0080ff">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Button fx:id="Btn_modifica" layoutX="855.0" layoutY="677.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="92.0" style="-fx-graphic: url(&quot;src/Images/file.png&quot;); -fx-border-color: #0080ff;" />
+      <Button id="btnCerrar" fx:id="btn_Salir" layoutX="541.0" layoutY="677.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" style="-fx-graphic: url(&quot;src/Images/errorpng&quot;); -fx-border-color: #0080ff;" />
+      <ImageView fx:id="img_terra" fitHeight="96.0" fitWidth="200.0" layoutX="540.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Teradyne.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

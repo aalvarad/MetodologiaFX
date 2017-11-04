@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="732.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PruebaController">
+   <children>
+      <Label fx:id="lbl_AgreLeng" graphicTextGap="11.0" layoutX="354.0" layoutY="67.0" prefHeight="75.0" prefWidth="557.0" text="                Agregar Languaje" textFill="#0080ff">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_AgrLenguaje" layoutX="272.0" layoutY="157.0" prefHeight="40.0" prefWidth="110.0" text="LANGUAJE" textFill="#0080ff" />
+      <Label fx:id="lbl_icono" layoutX="295.0" layoutY="242.0" prefHeight="17.0" prefWidth="38.0" text="ICON" textFill="#0080ff">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField id="txtlenguaje" fx:id="txt_lenguaje" layoutX="427.0" layoutY="160.0" prefHeight="34.0" prefWidth="411.0" style="-fx-border-color: #0080ff;" />
+      <Button id="cmbicono" fx:id="btn_Agrega" layoutX="427.0" layoutY="222.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="411.0" style="-fx-graphic: url(&quot;src/mages/laddButton.png&quot;); -fx-border-color: #0080ff;" />
+      <TableView id="tblTraductor" fx:id="tbl_table" editable="true" layoutX="278.0" layoutY="308.0" prefHeight="340.0" prefWidth="685.0" style="-fx-border-color: #0080ff;" tableMenuButtonVisible="true">
+        <columns>
+          <TableColumn prefWidth="343.0" text="Original Words" />
+          <TableColumn prefWidth="341.0" text="Translation" />
+        </columns>
+      </TableView>
+      <Button id="btnCancelar" fx:id="btn_Cerrar" layoutX="427.0" layoutY="674.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-graphic: url(&quot;src/Images/error.png&quot;); -fx-border-color: #0080ff;" />
+      <Button id="btnAgregar" fx:id="btn_Agregar" layoutX="714.0" layoutY="674.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-graphic: url(&quot;src/Images/save.png&quot;); -fx-border-color: #0080ff;" />
+      <Pane layoutX="195.0" layoutY="83.0" prefHeight="211.0" prefWidth="871.0" />
+      <ImageView fx:id="img_logo" fitHeight="83.0" fitWidth="200.0" layoutX="533.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Teradyne.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
