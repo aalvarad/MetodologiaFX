@@ -7,11 +7,13 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -22,7 +24,7 @@ import javafx.scene.layout.Pane;
  * @author castrorj
  */
 public class ADBUController implements Initializable {
-    
+    View.Main main = new View.Main();
     Model.Conection conn = new Model.Conection();
     CallableStatement stmt;
     ResultSet rs;
@@ -41,7 +43,8 @@ public class ADBUController implements Initializable {
     private Button btn_Save;
     @FXML
     private ChoiceBox<String> cmb_Bu;
-   
+    @FXML private RadioButton rdb_Activate;
+    @FXML private RadioButton rdb_Deactivate;
     
      ObservableList<String> bus = FXCollections.observableArrayList();
     
@@ -68,5 +71,27 @@ public class ADBUController implements Initializable {
     
     @FXML
     public void DActive (){
+    }
+    
+    @FXML
+    private void CheckStatus_BU(ActionEvent event) {
+          try {
+            Connection cn = conn.conexion();
+            stmt = cn.prepareCall("{CALL Check_Status_BU(?)}");
+            stmt.setString(1,cmb_Bu.getSelectionModel().getSelectedItem());
+            rs = stmt.executeQuery();
+            int read = 0;
+            while (rs.next()){
+                read = rs.getInt(1);
+            }
+            cn.close();
+            if (read == 1){
+                rdb_Activate.setSelected(true);
+            }
+            else {
+                rdb_Deactivate.setSelected(true);
+            }
+        } catch (Exception e) {
+        }
     }
 }

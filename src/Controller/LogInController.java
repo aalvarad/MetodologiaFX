@@ -98,7 +98,7 @@ public class LogInController implements Initializable {
                 //Ventana Rework
             break;
             case 2:
-                //Ventana Tecnico
+                main.newWindow("/View/ReworkStart.fxml");
             break;
             case 3:
                 main.newWindow("/View/AdminCenter.fxml");
