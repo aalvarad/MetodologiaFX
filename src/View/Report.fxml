@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="ap_Report" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportController">
+   <children>
+      <Label fx:id="lbl_Query" layoutX="14.0" layoutY="14.0" text="MySQL Query:" textFill="#0080ff" />
+      <TextArea fx:id="ta_Query" layoutX="14.0" layoutY="27.0" prefHeight="112.0" prefWidth="416.0" style="-fx-border-color: #0080ff;" />
+      <TableView fx:id="tv_QueryResult" layoutX="14.0" layoutY="161.0" prefHeight="200.0" prefWidth="558.0" style="-fx-border-color: #0080ff;">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <VBox fx:id="vb_Report" layoutX="443.0" layoutY="31.0" spacing="10.0">
+         <children>
+            <Label fx:id="lbl_Columns" layoutX="443.0" layoutY="31.0" text="Columns:" textFill="#0080ff" />
+            <TextField fx:id="txt_Columns" layoutX="443.0" layoutY="48.0" prefHeight="25.0" prefWidth="36.0" style="-fx-border-color: #0080ff;" />
+            <Button fx:id="btn_RunQuery" layoutX="445.0" layoutY="101.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="118.0" style="-fx-border-color: #0080ff; -fx-graphic: url(&quot;src/Images/run.png&quot;);" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
