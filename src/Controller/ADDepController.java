@@ -19,15 +19,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-/**
- * FXML Controller class
- *
- * @author castrorj
- */
+
 public class ADDepController implements Initializable {
     
     Model.Conection conn = new Model.Conection();
@@ -56,6 +53,8 @@ public class ADDepController implements Initializable {
     private ComboBox<String> cmb_BU;
     @FXML
     private ComboBox<String> cmb_area;
+    @FXML private RadioButton rdb_Activate;
+    @FXML private RadioButton rdb_Deactivate;
 
 
     ObservableList<String> bus = FXCollections.observableArrayList();
@@ -104,6 +103,28 @@ public class ADDepController implements Initializable {
         } catch (Exception e) {
         }
     }
+    
+    @FXML
+    private  void CheckStatus_Dep(ActionEvent event){
+        try {
+            Connection cn = conn.conexion();
+            stmt = cn.prepareCall("{CALL Check_Status_Department(?)}");
+            stmt.setString(1,cmb_Dep.getSelectionModel().getSelectedItem());
+            rs = stmt.executeQuery();
+            int read = 0;
+            while (rs.next()){
+                read = rs.getInt(1);
+            }
+            cn.close();
+            if (read == 1){
+                rdb_Activate.setSelected(true);
+            }
+            else {
+                rdb_Deactivate.setSelected(true);
+            }
+        } catch (Exception e) {
+        }
+    }
 
     @FXML
     private void listar_area(ActionEvent event) {
@@ -122,3 +143,4 @@ public class ADDepController implements Initializable {
         cmb_area.setItems(area);
     }
 }
+

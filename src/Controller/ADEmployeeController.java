@@ -19,16 +19,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-/**
- * FXML Controller class
- *
- * @author castrorj
- */
+
 public class ADEmployeeController implements Initializable {
 
     Model.Conection conn = new Model.Conection();
@@ -65,6 +62,9 @@ public class ADEmployeeController implements Initializable {
     private ComboBox<String> cmb_dep;
     @FXML
     private ComboBox<String> cmb_emp;
+    @FXML private RadioButton rdb_Activate;
+    @FXML private RadioButton rdb_Deactivate;
+    
 
     ObservableList<String> bus = FXCollections.observableArrayList();
     ObservableList<String> area = FXCollections.observableArrayList();
@@ -131,6 +131,28 @@ public class ADEmployeeController implements Initializable {
         } catch (Exception e) {
         }
         cmb_dep.setItems(dep);
+    }
+    
+    @FXML
+    private  void CheckStatus_Area(ActionEvent event){
+        try {
+            Connection cn = conn.conexion();
+            stmt = cn.prepareCall("{CALL Check_Status_Employee(?)}");
+            stmt.setString(1,cmb_emp.getSelectionModel().getSelectedItem());
+            rs = stmt.executeQuery();
+            int read = 0;
+            while (rs.next()){
+                read = rs.getInt(1);
+            }
+            cn.close();
+            if (read == 1){
+                rdb_Activate.setSelected(true);
+            }
+            else {
+                rdb_Deactivate.setSelected(true);
+            }
+        } catch (Exception e) {
+        }
     }
 
     @FXML

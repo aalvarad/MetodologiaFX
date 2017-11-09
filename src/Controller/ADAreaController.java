@@ -1,5 +1,6 @@
 package Controller;
 
+import javafx.scene.control.ComboBox;
 import java.net.URL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -12,11 +13,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+
 
 /**
  * FXML Controller class
@@ -37,6 +39,8 @@ public class ADAreaController implements Initializable {
     @FXML private Button btn_Save;
     @FXML private ChoiceBox<String> cmb_area;
     @FXML private Button btn_Act;
+    @FXML private RadioButton rdb_Activate;
+    @FXML private RadioButton rdb_Deactivate;
 
 
     ObservableList<String> bus = FXCollections.observableArrayList();
@@ -69,6 +73,27 @@ public class ADAreaController implements Initializable {
     @FXML
     public void DActive () {
         
+    }
+    @FXML
+    private  void CheckStatus_Area(ActionEvent event){
+        try {
+            Connection cn = conn.conexion();
+            stmt = cn.prepareCall("{CALL Check_Status_Area(?)}");
+            stmt.setString(1,cmb_area.getSelectionModel().getSelectedItem());
+            rs = stmt.executeQuery();
+            int read = 0;
+            while (rs.next()){
+                read = rs.getInt(1);
+            }
+            cn.close();
+            if (read == 1){
+                rdb_Activate.setSelected(true);
+            }
+            else {
+                rdb_Deactivate.setSelected(true);
+            }
+        } catch (Exception e) {
+        }
     }
 
     @FXML
