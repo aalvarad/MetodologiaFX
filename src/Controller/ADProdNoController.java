@@ -14,15 +14,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-/**
- * FXML Controller class
- *
- * @author castrorj
- */
+
 public class ADProdNoController implements Initializable {
     
     Model.Conection conn = new Model.Conection();
@@ -55,6 +52,8 @@ public class ADProdNoController implements Initializable {
     private ComboBox<String> cmb_area;
     @FXML
     private ComboBox<String> cmb_dep;
+    @FXML private RadioButton rdb_Activate;
+    @FXML private RadioButton rdb_Deactivate;
     
     
     ObservableList<String> bus = FXCollections.observableArrayList();
@@ -119,6 +118,29 @@ public class ADProdNoController implements Initializable {
         }
         cmb_dep.setItems(dep);
     }
+    
+    @FXML
+    private  void CheckStatus_Area(ActionEvent event){
+        try {
+            Connection cn = conn.conexion();
+            stmt = cn.prepareCall("{CALL Check_Status_Prod_No(?)}");
+            stmt.setString(1,cmb_ProdNo.getSelectionModel().getSelectedItem());
+            rs = stmt.executeQuery();
+            int read = 0;
+            while (rs.next()){
+                read = rs.getInt(1);
+            }
+            cn.close();
+            if (read == 1){
+                rdb_Activate.setSelected(true);
+            }
+            else {
+                rdb_Deactivate.setSelected(true);
+            }
+        } catch (Exception e) {
+        }
+    }
+
 
     @FXML
     private void listar_prodno(ActionEvent event) {
